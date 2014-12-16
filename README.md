@@ -11,3 +11,5 @@ There is no intented use for this framework other than pure perl coding.
 
 This is free software, I do not pretend anything out of this software artifact. Feel free to replace my contact info with your own contact details.
 
+Gaucho has been created by Guido Barosio, yet another Perl junkie. http://cl.linkedin.com/in/gbarosio/
+
