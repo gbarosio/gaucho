@@ -1,4 +1,7 @@
 #!/usr/bin/perl
+# Based on: http://www.wellho.net/resources/ex.php4?item=p402/miniserver.pl
+# modifyied by Guido Barosio, gbarosio@gmail.com
+# 2014, gaucho, yet another perl framework
 
 use strict;
 use Socket;
@@ -7,15 +10,6 @@ use IO::Socket;
 # Simple web server in Perl
 # Serves out .html files, echos form data
 
-sub parse_form {
-    my $data = $_[0];
-    my %data;
-    foreach (split /&/, $data) {
-        my ($key, $val) = split /=/;
-        $val =~ s/\+/ /g;
-        $val =~ s/%(..)/chr(hex($1))/eg;
-        $data{$key} = $val;}
-    return %data; }
 
 # Setup and create socket
 
@@ -116,4 +110,16 @@ while (my $client = $server->accept()) {
 
     close $client;
 }
+
+sub parse_form {
+    my $data = $_[0];
+    my %data;
+    foreach (split /&/, $data) {
+        my ($key, $val) = split /=/;
+        $val =~ s/\+/ /g;
+        $val =~ s/%(..)/chr(hex($1))/eg;
+        $data{$key} = $val;}
+    return %data; 
+}
+
 
