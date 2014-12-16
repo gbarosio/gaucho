@@ -13,3 +13,13 @@ This is free software, I do not pretend anything out of this software artifact. 
 
 Gaucho has been created by Guido Barosio, yet another Perl junkie. http://cl.linkedin.com/in/gbarosio/
 
+# gaucho features:
+
+- simple web server (http/1.0, no virtual host support)
+- simple routing mechanisms
+- simple a/b testing mechanisms
+- simple database mechanisms
+- simple caching mechanisms
+- simple error handling (aka Terror)
+
+
