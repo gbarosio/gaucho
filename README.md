@@ -5,6 +5,9 @@ NOTE: THIS IS A WORK IN PROGRESS SOFTWARE ARTIFACT, not even beta.
 
 Gaucho is a perl framework that pretends to implement the "model, view, controller" (AKA mvc), software architectural pattern. 
 
+Question: Hey, but why not just use Catalyst?
+Answer: As such, I am not recycling any existing framework, but just doing my own implementation. I am not glueing known technologies, nor messing around with what Catalyst does or not. I don´t care because I am trying to do this on my own, trying to find my own problems, in short :)
+
 Gaucho (Spanish: [ˈɡautʃo]) or gaúcho (Portuguese: [ɡaˈuʃu]) is a resident of the South American pampas, Gran Chaco, or Patagonian grasslands, found mainly in Argentina, Uruguay, Paraguay, Southeastern Bolivia, Southern Brazil and Southern Chile. In Brazil, gaúcho is also the main demonym of the people from the state of Rio Grande do Sul. In the Argentine pampas gauchos are the main workers on an estancia. <b>Their duty is to herd cattle all year round. They are excellent horsemen. They also use different types of weapons like the bola and lassos for herding cattle.</b>
 
 There is no intented use for this framework other than pure perl coding.
