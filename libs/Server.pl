@@ -14,19 +14,25 @@ use IO::Socket;
 # Setup and create socket
 
 my $port = shift;
-defined($port) or die "Usage: $0 portno\n";
+my $home = shift;
+my $counter = 0;
 
-my $DOCUMENT_ROOT = $ENV{'HOME'} . "/public_html";
+defined($port) or die "Usage: $0 portno home\n";
+defined($home) or die "Usage $0 portno home\n";
 
-my $server = new IO::Socket::INET(Proto => 'tcp',
-                                  LocalPort => $port,
-                                  Listen => SOMAXCONN,
-                                  Reuse => 1);
+my $DOCUMENT_ROOT = $home;
+
+my $server = new IO::Socket::INET(
+					Proto => 'tcp',
+                                	LocalPort => $port,
+                                  	Listen => 100000,
+                                  	ReuseAddr => 1);
 $server or die "Unable to create server socket: $!" ;
 
 # Await requests and handle them as they arrive
 
 while (my $client = $server->accept()) {
+    $counter++;
     $client->autoflush(1);
     my %request = ();
     my %data;
@@ -95,7 +101,7 @@ while (my $client = $server->accept()) {
         }
         else {
             print $client "HTTP/1.0 404 Not Found", Socket::CRLF;
-            print $client Socket::CRLF;
+            print $client "Concent-type: text/html", Socket::CRLF;
             print $client "<html><body>404 Not Found</body></html>";
             $data{"_status"} = "404";
         }
@@ -104,10 +110,10 @@ while (my $client = $server->accept()) {
 # Log Request
         print ($DOCUMENT_ROOT.$request{URL},"\n");
         foreach (keys(%data)) {
-                print ("   $_ = $data{$_}\n"); }
+                print ( " $_ = $data{$_}\n"); }
 
 # ----------- Close Connection and loop ------------------
-
+    print $counter."\n";
     close $client;
 }
 
