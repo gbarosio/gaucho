@@ -11,8 +11,6 @@ require Exporter;
 @EXPORT = qw/Index/;
 
 sub Index {
-
-	return 1;
-
+	return $0;
 }
 1;

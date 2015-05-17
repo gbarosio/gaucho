@@ -13,3 +13,8 @@ switch () {
 	case "testing" 		{		} 
 	case "production" 	{		} 
 }
+
+
+sub index() {
+	return 0;
+}
